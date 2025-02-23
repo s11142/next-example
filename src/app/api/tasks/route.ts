@@ -15,8 +15,12 @@ const tasks: Task[] = [
   },
 ];
 
+const sleep = (ms: number): Promise<void> =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
 // 関数名はHTTPメソッドと対応させる. GET, POST, DELETEなど..
 export const GET = async () => {
+  await sleep(1000);
   return NextResponse.json(
     { tasks },
     {

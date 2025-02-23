@@ -3,7 +3,7 @@ import { Task } from "@/app/api/tasks/route";
 const getTasks = async () => {
   const response = await fetch("http://localhost:3000/api/tasks", {
     method: "GET", // デフォルトがGETなので、GETの場合は省略可能,
-    cache: "force-cache", // cacheの種類をここで指定
+    cache: "no-store", // cacheの種類をここで指定
   });
   return await response.json();
 };
