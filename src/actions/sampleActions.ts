@@ -1,5 +1,7 @@
 "use server"; // このファイルに定義された非同期関数がServer Actionsとして認識されるようになる
 
+const sleep = (ms: number): Promise<void> =>
+  new Promise((resolve) => setTimeout(resolve, ms));
 export interface FormState {
   error: string;
 }
@@ -9,6 +11,8 @@ export const createTask = async (
   prevState: FormState,
   formData: FormData
 ) => {
+  await sleep(1000);
+
   // DBにタスクを作成
   console.log("タスクを作成しました");
 
